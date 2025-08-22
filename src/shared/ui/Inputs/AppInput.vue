@@ -48,8 +48,7 @@ input {
     background-repeat: no-repeat;
     background-position: calc(100% - 14px) center;
     background-size: 24px 24px;
-    // border: 2px solid $primary-200;
-		border: none;
+	border: none;
     border-radius: 5px;
     transition: .3s;
     caret-color: $primary-500;
@@ -92,11 +91,6 @@ input {
         padding: 10px;
         font-size: 16px;
         line-height: 22px;
-
-        // &[type='number'] {
-        //     width: 48px;
-        //     padding-inline: 4px;
-        // }
     }
 
     &.size-large {
@@ -104,11 +98,6 @@ input {
         padding: 10px;
         font-size: 17px;
         line-height: 21px;
-
-        // &[type='number'] {
-        //     width: 56px;
-        //     padding-inline: 6px;
-        // }
     }
 
     &.is-error {

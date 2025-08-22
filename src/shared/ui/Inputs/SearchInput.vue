@@ -15,17 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 import IconSearch from '@/shared/assets/icons/icon-search.svg'
 
 import { debounce } from '@/shared/utils/helpers.js'
-// import { useUsersStore } from '@/views/UsersPage/model/usersStore.js'
-// import { storeToRefs } from 'pinia'
 
-// const usersStore = useUsersStore()
-// const { usersList } = storeToRefs(usersStore)
-// const basedUsersList = usersList.value
 const emit = defineEmits(['search-input'])
 
 defineProps<{
@@ -38,18 +33,8 @@ const prompt = ref('')
 const handleInput = debounce(async () => {
     const string = prompt.value.trim()
 
-    // if (!string || string.length < 3) {
-    //     // usersStore.SET_USERS_LIST(basedUsersList)
-    //     return
-    // }
-
     emit('search-input', string)
-
-    // const usersFiltered = usersList.value.filter(user => user.name.toLowerCase().includes(string.toLowerCase()))
-    // usersStore.SET_USERS_LIST(usersFiltered)
 })
-
-// onMounted(() => input.value.focus())
 </script>
 
 <style scoped lang="scss">
@@ -95,7 +80,7 @@ const handleInput = debounce(async () => {
         outline: none;
         caret-color: $primary-500;
         transition: .3s;
-    
+
         @media (min-width: $tablet-breakpoint) {
             height: 48px;
             padding-right: 40px;
@@ -104,7 +89,7 @@ const handleInput = debounce(async () => {
             background-size: 32px 32px;
             border-bottom-width: 3px;
         }
-    
+
         @media (min-width: $desktop-breakpoint) {
             height: 80px;
             padding-right: 48px;
@@ -113,15 +98,15 @@ const handleInput = debounce(async () => {
             background-size: 40px 40px;
             border-bottom-width: 4px;
         }
-    
+
         &::-webkit-search-cancel-button {
             display: none;
         }
-    
+
         &:focus {
             border-color: $wait-w;
         }
-    
+
         &:not(:focus):not(:placeholder-shown) {
             border-color: $primary-500;
         }

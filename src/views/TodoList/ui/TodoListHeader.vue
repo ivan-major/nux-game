@@ -5,26 +5,33 @@
                 <div class="todo-list-header__icon">
                     <IconUser />
                 </div>
+
                 <div class="todo-list-header__title">{{ user.name }}</div>
             </div>
+
             <div class="todo-list-header__block">
                 <div class="todo-list-header__icon">
                     <IconCompany />
                 </div>
+
                 <div class="todo-list-header__title">{{ user.company.name }}</div>
             </div>
         </div>
+
         <div class="todo-list-header__container">
             <div class="todo-list-header__block">
                 <div class="todo-list-header__icon">
                     <IconEmail />
                 </div>
+
                 <a :href="`mailto:${user.email}`" class="todo-list-header__title">{{ user.email }}</a>
             </div>
+
             <div class="todo-list-header__block">
                 <div class="todo-list-header__icon">
                     <IconPhone />
                 </div>
+
                 <a :href="`tel:${user.phone}`" class="todo-list-header__title">{{ user.phone }}</a>
             </div>
         </div>
@@ -39,7 +46,7 @@ import IconEmail from '@/shared/assets/icons/icon-email.svg'
 import IconPhone from '@/shared/assets/icons/icon-phone.svg'
 import IconUser from '@/shared/assets/icons/icon-user.svg'
 
-const props = defineProps<{
+defineProps<{
     user: UserData
 }>()
 </script>
