@@ -81,7 +81,9 @@ const onLogin = () => {
 	}
 
 	const user = usersList.value.find(user => user.username === fields.value.userName && user.phone === fields.value.phoneNumber)
+
 	if (user) {
+		userStore.SET_USER_DATA(user)
 		router.push('/todos')
 	} else {
 		isUserNotFound.value = true

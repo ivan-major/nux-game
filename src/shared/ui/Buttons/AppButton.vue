@@ -51,30 +51,6 @@ const onClick = () => emit('on-click')
         stroke: $primary-300;
     }
 
-    // @media (min-width: $tablet-breakpoint) {
-    //     height: 32px;
-    //     padding: 10px 24px;
-    //     font-size: 14px;
-    //     line-height: 140%;
-
-    //     :deep(svg) {
-    //         width: 20px;
-    //         height: 20px;
-    //     }
-    // }
-
-    // @media (min-width: $desktop-breakpoint) {
-    //     height: 41px;
-    //     padding: 10px 30px;
-    //     font-size: 17px;
-    //     line-height: 21px;
-
-    //     :deep(svg) {
-    //         width: 24px;
-    //         height: 24px;
-    //     }
-    // }
-
     @media (any-hover: hover) {
         &:hover {
             background: $primary-600;
@@ -84,41 +60,6 @@ const onClick = () => emit('on-click')
             }
         }
     }
-
-    // &--wait-5 {
-    //     color: $black-400;
-    //     background: rgba($wait-w, .05);
-
-    //     @media (any-hover: hover) {
-    //         &:hover {
-    //             color: $black-100;
-    //             background: $black-700;
-    //         }
-    //     }
-
-    //     :deep(svg) {
-    //         stroke: $black-500;
-    //     }
-    // }
-
-    // &--primary {
-    //     color: $wait-w;
-    //     background: $primary-500;
-
-    //     @media (any-hover: hover) {
-    //         &:hover {
-    //             background: $primary-600;
-
-    //             :deep(svg) {
-    //                 stroke: $wait-w;
-    //             }
-    //         }
-    //     }
-
-    //     :deep(svg) {
-    //         stroke: $primary-300;
-    //     }
-    // }
 
     &--disabled {
         color: $black-500;

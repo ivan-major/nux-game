@@ -28,9 +28,9 @@ onMounted(async () => {
 		userStore.SET_USERS_LIST(response)
 	} catch (error) {
 		console.error('Error fetching users:', error)
+	} finally {
+		rootStore.TOGGLE_LOADING_STATUS()
 	}
-
-	rootStore.TOGGLE_LOADING_STATUS()
 })
 </script>
 
