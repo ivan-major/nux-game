@@ -1,7 +1,7 @@
 <template>
     <div class="todo-item">
         <p :class="titleClasses">{{ props.todo.title }}</p>
-        <div :class="favoriteClasses">
+        <div :class="favoriteClasses" @click="toggleFavorite">
             <IconFavorite />
         </div>
     </div>
@@ -11,10 +11,13 @@
 import { computed } from 'vue'
 import type { Todo } from '@/entities/todos/types/todo'
 import IconFavorite from '@/shared/assets/icons/icon-favorite.svg'
+import { useFavoritesIds } from '@/entities/todos/model/useFavoritesIds'
 
 const props = defineProps<{
     todo: Todo
 }>()
+
+const favorites = useFavoritesIds()
 
 const titleClasses = computed(() => [
     'todo-item__title',
@@ -23,8 +26,13 @@ const titleClasses = computed(() => [
 
 const favoriteClasses = computed(() => [
     'todo-item__icon',
-   { 'todo-item__icon---favorite': true }
+   { 'todo-item__icon--favorite': favorites.isFavorite(props.todo.id) }
 ])
+
+const toggleFavorite = () => {
+    favorites.toggleFavorite(props.todo.id)
+}
+
 </script>
 
 <style scoped lang="scss">
@@ -91,6 +99,11 @@ const favoriteClasses = computed(() => [
         @media (min-width: $lg-desktop-breakpoint) {
             width: 32px;
             height: 32px;
+        }
+
+        &--favorite {
+            fill: $primary-500;
+            stroke: $primary-500;
         }
     }
 }
