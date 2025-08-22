@@ -72,7 +72,6 @@ const handleInput = (value: string, key: 'userName' | 'phoneNumber') => {
 const validate = (key: 'userName' | 'phoneNumber') => v$.value[key].$touch()
 
 const onLogin = () => {
-	debugger
 	isLogging.value = true
 
 	if (v$.value.$invalid) {
