@@ -1,33 +1,43 @@
-# nux-game
+# 📝 Vue 3 Todos App
 
-This template should help get you started developing with Vue 3 in Vite.
+A small test project built with **Vue 3 + TypeScript + Pinia**.
+Implements basic Todo list functionality with API integration, filtering, favorites, and local persistence.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Tech stack
+- [Vue 3](https://vuejs.org/) (Composition API, `<script setup>`)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Pinia](https://pinia.vuejs.org/) — state management
+- [Vite](https://vitejs.dev/) — bundler
+- [ofetch](https://github.com/unjs/ofetch) — HTTP requests
 
-## Type Support for `.vue` Imports in TS
+---
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## 📖 Features
+- 📌 Fetch Todos from [jsonplaceholder API](https://jsonplaceholder.typicode.com/todos)
+- ⭐ Mark/unmark Todos as favorites (saved in `localStorage`)
+- 🔍 Search by title
+- 🗂 Filter by:
+  - **status** (completed / not completed / all)
+  - **userId** (specific user / all users)
+- 🛠 Global state management via **Pinia**
+- 💾 Local persistence with `localStorage`
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## ⚙️ Setup & Run
 
-## Project Setup
+```bash
+# 1. Clone repository
+git clone https://github.com/username/todos-app.git
+cd todos-app
 
-```sh
+# 2. Install dependencies
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# 3. Run in dev mode
 npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
+# 4. Build for production
 npm run build
-```
