@@ -6,7 +6,6 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { storeToRefs } from 'pinia'
 
 import { apiUsers } from '@/entities/users/api'
 
@@ -17,8 +16,6 @@ import HomePageAuth from '@/views/Home/HomePageAuth/HomePageAuth.vue'
 
 const userStore = useUserStore()
 const rootStore = useRootStore()
-
-const { usersList } = storeToRefs(userStore)
 
 onMounted(async () => {
 	rootStore.TOGGLE_LOADING_STATUS()

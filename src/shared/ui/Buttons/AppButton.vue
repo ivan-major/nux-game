@@ -32,18 +32,17 @@ const onClick = () => emit('on-click')
     gap: 10px;
     flex-shrink: 0;
     width: 100%;
+    padding: 10px 30px;
+    font-size: 17px;
     font-family: $global-font-family;
     font-weight: 700;
+    line-height: 21px;
+    color: $wait-w;
+    background: $green;
     cursor: pointer;
     border: 0;
     border-radius: 5px;
     transition: .3s;
-    height: 41px;
-    padding: 10px 30px;
-    font-size: 17px;
-    line-height: 21px;
-    color: $wait-w;
-    background: $green;
 
     :deep(svg) {
         width: 24px;

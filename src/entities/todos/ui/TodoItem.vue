@@ -1,6 +1,7 @@
 <template>
     <div class="todo-item">
         <p :class="titleClasses">{{ props.todo.title }}</p>
+
         <div :class="favoriteClasses" @click="toggleFavorite">
             <IconFavorite />
         </div>
@@ -9,9 +10,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Todo } from '@/entities/todos/types/todo'
-import IconFavorite from '@/shared/assets/icons/icon-favorite.svg'
 import { useFavoritesIds } from '@/entities/todos/model/useFavoritesIds'
+
+import IconFavorite from '@/shared/assets/icons/icon-favorite.svg'
+import type { Todo } from '@/entities/todos/types/todo'
 
 const props = defineProps<{
     todo: Todo
@@ -32,7 +34,6 @@ const favoriteClasses = computed(() => [
 const toggleFavorite = () => {
     favorites.toggleFavorite(props.todo.id)
 }
-
 </script>
 
 <style scoped lang="scss">
@@ -50,7 +51,6 @@ const toggleFavorite = () => {
         padding: 16px;
         border-radius: 10px;
     }
-
 
     &__title {
         font-size: 14px;

@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { defineAsyncComponent } from 'vue'
 import HomePage from '@/views/Home/HomePage.vue'
 import TodoListPage from '@/views/TodoList/TodoListPage.vue'
 

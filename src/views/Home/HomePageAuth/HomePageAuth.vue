@@ -3,10 +3,10 @@
 		<div class="auth-form__header">
 			<h1 class="auth-form__title">Login</h1>
 		</div>
+
 		<div class="auth-form__body">
 			<div class="auth-form__inputs">
 				<AppInput
-					size="large"
 					:value="fields.userName"
 					:is-error="v$.userName.$error"
 					:errors="v$.userName.$errors"
@@ -14,8 +14,8 @@
 					@on-input="handleInput($event, 'userName')"
                     @on-change="validate('userName')"
 				/>
+
 				<AppInput
-					size="large"
 					:value="fields.phoneNumber"
 					:errors="v$.phoneNumber.$errors"
 					:is-error="v$.phoneNumber.$error"
@@ -24,6 +24,7 @@
                     @on-change="validate('phoneNumber')"
 				/>
 			</div>
+
 			<div class="auth-form__button">
 				<AppButton
 					variant="primary"
@@ -32,6 +33,7 @@
 				>
 					Login
 				</AppButton>
+
 				<p v-if="isUserNotFound" class="auth-form__error">User not found</p>
 			</div>
 		</div>
@@ -140,6 +142,7 @@ const onLogin = () => {
 
 	&__button {
 		position: relative;
+		height: 41px;
 	}
 
 	&__error {

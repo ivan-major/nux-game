@@ -1,12 +1,13 @@
 <template>
     <div class="todo-list">
         <TodoListHeader :user="userData" />
+
         <TodoListBody />
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 
 import TodoListHeader from './ui/TodoListHeader.vue'

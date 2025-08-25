@@ -1,33 +1,22 @@
-import { storeToRefs } from 'pinia'
-import { useTodosStore } from '@/entities/todos/model/store'
-import { useUserStore } from '@/entities/users/model/store'
-
-export const filterTodosByStatus = {
-    all: [
-        { label: 'All', value: 'all' },
-        { label: 'Completed', value: 'completed' },
-        { label: 'Uncompleted', value: 'uncompleted' },
-        { label: 'Favorites ', value: 'favorites' }
-    ],
-    default: 'all'
+export const STATUS_FILTERS = {
+    ALL: 'all',
+    COMPLETED: 'completed',
+    UNCOMPLETED: 'uncompleted',
+    FAVORITES: 'favorites',
+    ALL_USERS: 'all-users'
 }
 
-export const getUsersList = () => {
-    const todoStore = useTodosStore()
-    const userStore = useUserStore()
-    const { todosList } = storeToRefs(todoStore)
-    const { usersList } = storeToRefs(userStore)
+export const FILTER_TODOS_BY_STATUS = {
+    ALL: [
+        { label: 'All', value: STATUS_FILTERS.ALL },
+        { label: 'Completed', value: STATUS_FILTERS.COMPLETED },
+        { label: 'Uncompleted', value: STATUS_FILTERS.UNCOMPLETED },
+        { label: 'Favorites ', value: STATUS_FILTERS.FAVORITES }
+    ],
+    DEFAULT: STATUS_FILTERS.ALL
+}
 
-    return {
-        all: [
-            { label: 'All', value: 'all' },
-            ...todosList.value.map(todo => ({
-                label: usersList.value.find(user => user.id === todo.userId)?.name || 'Unknown',
-                value: todo.userId
-            })).filter((user, index, self) =>
-                index === self.findIndex((u) => u.value === user.value)
-            )
-        ],
-        default: 'all'
-    }
+export const FILTERS_TYPE = {
+    STATUS_FILTER: 'status',
+    USER_FILTER: 'user'
 }

@@ -8,6 +8,7 @@
             :placeholder="placeholder"
             @input="handleInput"
         >
+
         <div class="search-input__icon">
             <IconSearch />
         </div>
@@ -16,9 +17,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-
 import IconSearch from '@/shared/assets/icons/icon-search.svg'
-
 import { debounce } from '@/shared/utils/helpers.js'
 
 const emit = defineEmits(['search-input'])

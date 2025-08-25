@@ -10,6 +10,7 @@
                 {{ selectedItem.label }}
             </span>
         </div>
+
         <ul :class="['select__list', { 'select__list--active': focused }]">
             <li
                 v-for="(item, index) in items"

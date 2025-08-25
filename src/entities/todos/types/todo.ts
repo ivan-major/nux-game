@@ -5,4 +5,6 @@ interface Todo {
     completed: boolean
 }
 
-export type { Todo };
+type NewTodo = Omit<Todo, 'id'>;
+
+export type { Todo, NewTodo };

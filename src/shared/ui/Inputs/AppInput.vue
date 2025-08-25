@@ -7,21 +7,23 @@
             @input="onInput"
             @change="onChange"
         >
-        <p v-if="isError" class="app-input__error">{{ errors[0].$message }}</p>
+        <p
+            v-if="isError && errors?.[0]?.$message"
+            class="app-input__error"
+        >
+            {{ errors[0].$message }}
+        </p>
     </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 
-type Size = 'medium' | 'large'
-
 interface Props {
-  size: Size
-  value: string | number
-  errors: Record<string, any>
-  isError?: boolean
-  isSuccess?: boolean
+    value: string | number
+    errors?: Record<string, any>
+    isError?: boolean
+    isSuccess?: boolean
 }
 
 
@@ -29,7 +31,6 @@ const props = defineProps<Props>()
 const emit = defineEmits(['on-input', 'on-change'])
 
 const classes = computed(() => [
-    `size-${ props.size }`,
     { 'is-error': props.isError },
     { 'is-success': props.isSuccess }
 ])
@@ -41,17 +42,22 @@ const onChange = (event: Event) => emit('on-change', (event.target as HTMLInputE
 <style scoped lang="scss">
 input {
     width: 100%;
+    height: 40px;
+    padding: 10px;
     font: inherit;
+    font-size: 16px;
     font-weight: 700;
+    line-height: 22px;
     color: $black;
     background-color: $wait-w;
     background-repeat: no-repeat;
     background-position: calc(100% - 14px) center;
     background-size: 24px 24px;
-	border: none;
+    border: none;
     border-radius: 5px;
     transition: .3s;
     caret-color: $primary-500;
+
 
     &[type='number'] {
         appearance: none;
@@ -84,20 +90,6 @@ input {
 
     &::selection {
         background: $global-selection-color;
-    }
-
-    &.size-medium {
-        height: 40px;
-        padding: 10px;
-        font-size: 16px;
-        line-height: 22px;
-    }
-
-    &.size-large {
-        height: 41px;
-        padding: 10px;
-        font-size: 17px;
-        line-height: 21px;
     }
 
     &.is-error {
